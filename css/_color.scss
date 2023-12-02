@@ -1,0 +1,7 @@
+@mixin color($radius, $color, $rad)
+{
+    background-color: $color;
+    width: $radius;
+    height: $radius;
+    border-radius: $rad;
+}

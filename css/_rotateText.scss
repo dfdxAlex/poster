@@ -1,0 +1,28 @@
+@mixin rotateText($x:false, $y:false, $z:false, $shadow:false)
+{
+    @if ($x!=false and $y==false and $z==false) {
+        transform: rotateX($x);
+    }
+
+    @else if ($x==false and $y!=false and $z==false) {
+        transform: rotateY($y);
+    }
+
+    @else if ($x==false and $y==false and $z!=false) {
+        transform: perspective($z);
+    }
+
+    @else if ($x!=false and $y!=false and $z==false) {
+        transform: rotateY($y) rotateX($x);
+    }
+
+    @else if ($x!=false and $y!=false and $z!=false) {
+        transform: rotateY($y) rotateX($x) rotateZ($z);
+        
+    }
+
+    @if $shadow!=false {
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+        text-shadow: $shadow $shadow $shadow rgba(0, 0, 0, 0.5);
+    }
+}

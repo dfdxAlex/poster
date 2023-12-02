@@ -1,0 +1,69 @@
+
+@mixin posterGradient($grad_type, $forObject:"background") {
+
+    @if gradientLineTwo($grad_type) {
+        @if $forObject=="background" {
+            background: linear-gradient($grad_type, $color1, $color2);
+        } 
+        @else if $forObject=="font" {
+            background: linear-gradient($grad_type, $colorP1, $colorP2);
+        }
+    }
+
+    
+    @if gradientLineThree($grad_type) {
+        
+        @if $forObject=="background" {
+            background: linear-gradient($grad_type, $color1, $color2, $color3);
+        }
+        @else if $forObject=="font" {
+            background: linear-gradient($grad_type, $colorP1, $colorP2, $colorP3);
+        }
+    }   
+
+    @if gradientCircleTwo($grad_type) {
+        @if $forObject=="background" {
+            background: radial-gradient($grad_type, $color1, $color2);
+        } 
+        @else if $forObject=="font" {
+            background: radial-gradient($grad_type, $colorP1, $colorP2);
+        }
+    }
+
+    @if gradientCircleThree($grad_type) {
+        @if $forObject=="background" {
+            background: radial-gradient($grad_type, $color1, $color2, $color3);
+        } 
+        @else if $forObject=="font" {
+            background: radial-gradient($grad_type, $colorP1, $colorP2, $colorP3);
+        }
+    } 
+}
+
+@function gradientLineTwo($gradient_type) {
+    @if ($gradient_type!=circle and $color3 == false) {
+        @return true;
+    }
+    @return false;
+}
+
+@function gradientLineThree($gradient_type) {
+    @if ($gradient_type!=circle and $color3 != false) {
+        @return true;
+    }
+    @return false;
+}
+
+@function gradientCircleTwo($gradient_type) {
+    @if ($gradient_type==circle and $color3 == false) {
+        @return true;
+    }
+    @return false;
+}
+
+@function gradientCircleThree($gradient_type) {
+    @if ($gradient_type==circle and $color3 != false) {
+        @return true;
+    }
+    @return false;
+}

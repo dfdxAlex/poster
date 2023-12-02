@@ -1,0 +1,24 @@
+@import "color";
+
+@mixin threeColor($radius:100, $rad:60)
+{
+    $radius: #{$radius};
+    $length: str-length($radius);
+    $radius: str-insert($radius, "px" , $length+1 );
+
+    $rad: #{$rad};
+    $length: str-length($rad)+1;
+    $rad: str-insert($rad, "%" , $length);
+
+    .color-red {
+        @include color($radius, red, $rad);
+    }
+    
+    .color-yellow {
+        @include color($radius, yellow, $rad);
+    }
+    
+    .color-green {
+        @include color($radius, green, $rad);
+    }
+}

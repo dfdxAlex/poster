@@ -1,0 +1,52 @@
+@import "console";
+@import "threeColor";
+@import "posterGradient";
+@import "pozXY";
+@import "rotateText";
+
+// Стили для постера в CSS
+// размер и градиент для фона
+$color1:#F7D757;
+$color2:white;
+$color3:#3772A0;
+$gradient_type_background:circle; //to (bottom/top/right/left) or circle
+
+// размер и градиент для текста
+$colorP1:rgb(156, 102, 102);
+$colorP2:white;
+$colorP3:rgb(100, 6, 6);
+$gradient_typeP:to right; //to (bottom/top/right/left) or circle
+// $fontSize: 200px;
+$x:80px;
+$y:80px;
+//transform(поворот x, поворот y, повотот z, тень)
+.transforTextP{@include rotateText(30deg, 40deg, 10deg, 5px)}
+
+.poster-div {
+    @include pozXY();
+    height: 500px;
+    width: 800px;
+    @include posterGradient($gradient_type_background);
+}
+
+.poster-p {
+    @include posterGradient($gradient_typeP, "font");
+    background-clip: text;
+    -webkit-background-clip: text;
+    height: 250px;
+    width: 90%;
+    color: transparent;
+    font-size: 250px;
+    @include pozXY($x, $y);
+    @extend .transforTextP;
+    margin: 0;
+}
+
+.logo {
+    @extend .poster-p;
+    @include pozXY(60px, 10px);
+    height: 120px;
+    width: 100%;
+    font-size: 100px;
+}
+

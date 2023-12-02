@@ -1,0 +1,9 @@
+@mixin pozXY($x:false, $y:false)
+{
+    position: relative;
+    @if $x!=false and $y!=false
+    {
+        top: $x;
+        left: $y;
+    } 
+}
